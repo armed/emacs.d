@@ -17,6 +17,8 @@
 
 (setq el-get-user-package-directory "~/.emacs.d/el-get-init-files")
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
+(setq my-packages
+      '(cl-lib company dash el-get epl flx package pkg-info projectile s smex))
 (el-get 'sync)
 
 (require 'el-get-elpa)
