@@ -1,3 +1,8 @@
+;;; env
+(setq exec-path (append exec-path
+			'("~/Developer/go/bin"
+			  "/usr/local/bin")))
+
 ;;; bell
 (setq ring-bell-function 'ignore)
 
@@ -15,27 +20,12 @@
 (setq-default tab-width 4)
 (setq indent-line-function 'insert-tab)
 
-;;; auto save
-(defun full-auto-save ()
-  (interactive)
-  (save-excursion
-    (dolist (buf (buffer-list))
-      (set-buffer buf)
-      (if (and (buffer-file-name) (buffer-modified-p))
-          (basic-save-buffer)))))
-(add-hook 'auto-save-hook 'full-auto-save)
-(setq auto-save-interval 1
-      auto-save-timeout 1)
-
 ;;; Smex
 (autoload 'smex "smex"
   "Smex is a M-x enhancement for Emacs, it provides a convenient interface to
 your recently and most frequently used commands.")
 
 (global-set-key (kbd "M-x") 'smex)
-
-;;; projectile
-(projectile-global-mode)
 
 ;;; flx-ido
 (ido-mode 1)
