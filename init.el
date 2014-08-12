@@ -1,11 +1,11 @@
-;; melpa
+;;; melpa
 (require 'package)
 (add-to-list 'package-archives
              ;; The 't' means to append, so that MELPA comes after the more
              ;; stable ELPA archive.
              '("melpa" . "http://melpa.milkbox.net/packages/"))
 
-;; el-get
+;;; el-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 
 (unless (require 'el-get nil 'noerror)
@@ -22,12 +22,12 @@
 (el-get 'sync)
 
 (require 'el-get-elpa)
-;; Build the El-Get copy of the package.el packages if we have not
-;; built it before.  Will have to look into updating later ...
+;;; Build the El-Get copy of the package.el packages if we have not
+;;; built it before.  Will have to look into updating later ...
 (unless (file-directory-p el-get-recipe-path-elpa)
   (el-get-elpa-build-local-recipes))
 
-;; user options
+;;; user options
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (require 'user-opts)
 
