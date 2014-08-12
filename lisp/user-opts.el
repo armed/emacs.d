@@ -69,5 +69,9 @@ your recently and most frequently used commands.")
          (linum-format (concat " %" (number-to-string w) "d ")))
     ad-do-it))
 
+;;; mouse scroll
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil)
+
 ;;;
 (provide 'user-opts)
