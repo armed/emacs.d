@@ -1,3 +1,4 @@
+/eshell
 /url/cache
 /.emacs.desktop
 /auto-save-list
@@ -33,3 +34,4 @@ site-lisp/package/
 /.smex-items
 /image-dired/
 /el-get
+projectile-bookmarks.eld

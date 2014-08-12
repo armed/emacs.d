@@ -1,12 +1,9 @@
 ;; melpa
 (require 'package)
 (add-to-list 'package-archives
-  ;; The 't' means to append, so that MELPA comes after the more
-  ;; stable ELPA archive.
-  '("melpa" . "http://melpa.milkbox.net/packages/"))
-
-;; load list
-(add-to-list 'load-path "~/.emacs.d/lisp")
+             ;; The 't' means to append, so that MELPA comes after the more
+             ;; stable ELPA archive.
+             '("melpa" . "http://melpa.milkbox.net/packages/"))
 
 ;; el-get
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
@@ -28,14 +25,6 @@
 (unless (file-directory-p el-get-recipe-path-elpa)
   (el-get-elpa-build-local-recipes))
 
-;; recent files
-(require 'recentf)
-(recentf-mode 1)
-(setq recentf-max-menu-items 25)
-(global-set-key "\C-x\ \C-r" 'recentf-open-files)
-
 ;; user options
-(require 'bell-setup)
-(require 'tab-setup)
-(require 'font-setup)
-
+(add-to-list 'load-path "~/.emacs.d/lisp")
+(require 'user-opts)
