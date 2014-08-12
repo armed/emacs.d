@@ -20,7 +20,7 @@
 (setq my-packages
       '(cl-lib company dash el-get epl flx go-eldoc go-mode
                package pkg-info projectile s smex
-               spacegray-theme sublime-themes magit))
+               sublime-themes magit))
 (el-get 'sync)
 
 (require 'el-get-elpa)
