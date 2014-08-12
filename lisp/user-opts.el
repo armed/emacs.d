@@ -18,6 +18,13 @@
 (setq recentf-max-menu-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
 
+;; other keys
+(global-set-key "\M-b" 'other-window)
+(global-set-key (kbd "<C-M-right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "<C-M-left>") 'shrink-window-horizontally)
+(global-set-key (kbd "<C-M-down>") 'enlarge-window)
+(global-set-key (kbd "<C-M-up>") 'shrink-window)
+
 ;;; fonts
 (set-default-font "Source Code Pro-15")
 
