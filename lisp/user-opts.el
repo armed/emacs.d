@@ -50,11 +50,14 @@ your recently and most frequently used commands.")
 
 ;;; prevent backups
 (setq make-backup-files nil)
+(setq auto-save-default nil)
 
 ;;; trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 ;;; appearance
+(setq inhibit-startup-screen t) ;; no startup screen
+
 (if (display-graphic-p)
     (progn
       (tool-bar-mode -1)
