@@ -35,3 +35,4 @@ site-lisp/package/
 /image-dired/
 /el-get
 projectile-bookmarks.eld
+/abbrev_defs
