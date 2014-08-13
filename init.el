@@ -20,7 +20,8 @@
 (setq my-packages
       '(cl-lib company dash el-get epl flx go-eldoc go-mode
                package pkg-info projectile s smex
-               sublime-themes magit))
+               sublime-themes magit flycheck company-go
+               unicode-fonts persistent-soft))
 (el-get 'sync)
 
 (require 'el-get-elpa)
