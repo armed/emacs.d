@@ -26,11 +26,13 @@
 (setq el-get-user-package-directory "~/.emacs.d/el-get-init-files")
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 (setq my-packages
-      '(cl-lib company dash el-get epl flx go-eldoc go-mode
-               package pkg-info projectile s smex
-               sublime-themes magit flycheck company-go
-               unicode-fonts persistent-soft))
-(el-get 'sync)
+      '(auto-complete cl-lib dash dynamic-fonts el-get epl f flx
+                      flycheck font-utils fuzzy git-modes
+                      go-autocomplete go-eldoc go-mode go-snippets
+                      list-utils magit package pcache persistent-soft
+                      pkg-info popup projectile s smex sublime-themes
+                      ucs-utils unicode-fonts yasnippet zenburn-theme))
+(el-get 'sync my-packages)
 
 (require 'el-get-elpa)
 ;;; Build the El-Get copy of the package.el packages if we have not
