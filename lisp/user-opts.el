@@ -84,22 +84,14 @@ your recently and most frequently used commands.")
 ;;; trailing whitespaces
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
-;;; appearance
-(setq inhibit-startup-screen t) ;; no startup screen
+(global-hl-line-mode -1)
+(global-linum-mode -1)
 
-(if (display-graphic-p)
-    (progn
-      (tool-bar-mode -1)
-      (scroll-bar-mode -1)))
-
-(global-hl-line-mode 1)
-(global-linum-mode 1)
-
-(defadvice linum-update-window (around linum-dynamic activate)
-  (let* ((w (length (number-to-string
-                     (count-lines (point-min) (point-max)))))
-         (linum-format (concat " %" (number-to-string w) "d ")))
-    ad-do-it))
+;;(defadvice linum-update-window (around linum-dynamic activate)
+;;  (let* ((w (length (number-to-string
+;;                     (count-lines (point-min) (point-max)))))
+;;         (linum-format (concat " %" (number-to-string w) "d ")))
+;;    ad-do-it))
 
 ;;; mouse scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
