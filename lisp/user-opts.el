@@ -35,6 +35,28 @@
 (global-set-key (kbd "<s-up>") 'backward-paragraph)
 (global-set-key (kbd "<s-down>") 'forward-paragraph)
 
+(defun move-line-down ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines 1))
+    (forward-line)
+    (move-to-column col)))
+
+(defun move-line-up ()
+  (interactive)
+  (let ((col (current-column)))
+    (save-excursion
+      (forward-line)
+      (transpose-lines -1))
+    (move-to-column col)))
+
+(global-set-key (kbd "<C-S-down>") 'move-line-down)
+(global-set-key (kbd "<C-S-up>") 'move-line-up)
+
+;; replace on yank
+(delete-selection-mode 1)
 
 ;; dublicate line
 (defun duplicate-line()
