@@ -9,10 +9,11 @@
       '("~/Developer/go/bin"
         "/usr/local/bin")))
 
-
-
 ;;; bell
 (setq ring-bell-function 'ignore)
+
+;;; y-no-p
+(defalias 'yes-or-no-p 'y-or-n-p)
 
 ;;; desktop
 (desktop-save-mode t)
@@ -31,7 +32,6 @@
 (global-set-key (kbd "<C-M-up>") 'shrink-window)
 (global-set-key (kbd "<M-up>") 'other-window)
 (global-set-key (kbd "<M-down>") 'other-window)
-(global-set-key (kbd "RET") 'newline-and-indent)
 (global-set-key (kbd "<s-left>") 'move-beginning-of-line)
 (global-set-key (kbd "<s-right>") 'move-end-of-line)
 (global-set-key (kbd "<s-up>") 'backward-paragraph)
@@ -56,7 +56,7 @@
 (global-set-key (kbd "s-d") 'duplicate-line)
 
 ;;; fonts
-(set-frame-font "DejaVu Sans Mono 15")
+(set-frame-font "Monaco 15")
 (setq file-name-coding-system 'utf-8)
 
 ;;; tab width
@@ -69,7 +69,6 @@
 
 ;;; brackets
 (electric-pair-mode 1)
-
 
 ;;; prevent backups
 (setq make-backup-files nil)

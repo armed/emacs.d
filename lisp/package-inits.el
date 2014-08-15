@@ -2,22 +2,6 @@
 ;;; Package initializations
 ;;;
 
-;;; Smex
-(autoload 'smex "smex"
-  "Smex is a M-x enhancement for Emacs, it provides a convenient interface to
-your recently and most frequently used commands.")
-
-(global-set-key (kbd "M-x") 'smex)
-
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
-
-;;; flx-ido
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-
 ;;; projectile
 (projectile-global-mode t)
 
@@ -32,14 +16,11 @@ your recently and most frequently used commands.")
 ;;; go-mode
 (add-hook 'before-save-hook #'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
+                          (local-set-key (kbd "RET") 'newline-and-indent)
                           (local-set-key (kbd "<M-.>") #'godef-jump)))
 
 ;;; go-eldoc
 (add-hook 'go-mode-hook 'go-eldoc-setup)
-
-;;; go autocomplete
-(require 'go-autocomplete)
-(require 'auto-complete-config)
 
 ;;; unicode-fonts
 (unicode-fonts-setup)
@@ -52,6 +33,25 @@ your recently and most frequently used commands.")
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 ;; Set Yasnippet's key binding to shift+tab
 (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)
+
+;;; evil nert commenter
+(evilnc-default-hotkeys)
+
+;;; auto complete
+(require 'auto-complete)
+(global-auto-complete-mode t)
+
+(defun auto-complete-mode-maybe ()
+  "No maybe for you. Only AC!"
+  (unless (minibufferp (current-buffer))
+    (auto-complete-mode 1)))
+
+;;; go autocomplete
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+
+;;; helm
+(require 'helm-inits)
 
 (provide 'package-inits)
 ;;; package-inits.el ends here
