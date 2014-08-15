@@ -5,6 +5,7 @@
 /.session
 /custom.el
 *.elc
+.cask
 CVS
 .svn
 *~
@@ -36,3 +37,4 @@ site-lisp/package/
 /el-get
 projectile-bookmarks.eld
 /abbrev_defs
+.#*

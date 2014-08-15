@@ -1,4 +1,4 @@
-;; Turn off mouse interface early in startup to avoid momentary display
+;;; Turn off mouse interface early in startup to avoid momentary display
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -6,39 +6,9 @@
 ;;; appearance
 (setq inhibit-startup-screen t) ;; no startup screen
 
-;;; melpa
-(require 'package)
-(add-to-list 'package-archives
-             ;; The 't' means to append, so that MELPA comes after the more
-             ;; stable ELPA archive.
-             '("melpa" . "http://melpa.milkbox.net/packages/"))
-
-;;; el-get
-(add-to-list 'load-path "~/.emacs.d/el-get/el-get")
-
-(unless (require 'el-get nil 'noerror)
-  (with-current-buffer
-      (url-retrieve-synchronously
-       "https://raw.github.com/dimitri/el-get/master/el-get-install.el")
-    (goto-char (point-max))
-    (eval-print-last-sexp)))
-
-(setq el-get-user-package-directory "~/.emacs.d/el-get-init-files")
-(add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(setq my-packages
-      '(auto-complete cl-lib dash dynamic-fonts el-get epl f flx
-                      flycheck font-utils fuzzy git-modes
-                      go-autocomplete go-eldoc go-mode go-snippets
-                      list-utils magit package pcache persistent-soft
-                      pkg-info popup projectile s smex sublime-themes
-                      ucs-utils unicode-fonts yasnippet zenburn-theme))
-(el-get 'sync my-packages)
-
-(require 'el-get-elpa)
-;;; Build the El-Get copy of the package.el packages if we have not
-;;; built it before.  Will have to look into updating later ...
-(unless (file-directory-p el-get-recipe-path-elpa)
-  (el-get-elpa-build-local-recipes))
+(require 'cask "/usr/local/Cellar/cask/0.7.0/cask.el")
+(cask-initialize)
+(require 'pallet)
 
 ;;; user options
 (add-to-list 'load-path "~/.emacs.d/lisp")

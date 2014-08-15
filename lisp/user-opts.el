@@ -10,9 +10,6 @@
         "/usr/local/bin")))
 
 
-;;; go autocomplete
-(require 'go-autocomplete)
-(require 'auto-complete-config)
 
 ;;; bell
 (setq ring-bell-function 'ignore)
@@ -73,20 +70,6 @@
 ;;; brackets
 (electric-pair-mode 1)
 
-;;; Smex
-(autoload 'smex "smex"
-  "Smex is a M-x enhancement for Emacs, it provides a convenient interface to
-your recently and most frequently used commands.")
-
-(global-set-key (kbd "M-x") 'smex)
-
-;;; flx-ido
-(ido-mode 1)
-(ido-everywhere 1)
-(flx-ido-mode 1)
-;; disable ido faces to see flx highlights.
-(setq ido-enable-flex-matching t)
-(setq ido-use-faces nil)
 
 ;;; prevent backups
 (setq make-backup-files nil)
@@ -98,15 +81,12 @@ your recently and most frequently used commands.")
 (global-hl-line-mode -1)
 (global-linum-mode -1)
 
-;;(defadvice linum-update-window (around linum-dynamic activate)
-;;  (let* ((w (length (number-to-string
-;;                     (count-lines (point-min) (point-max)))))
-;;         (linum-format (concat " %" (number-to-string w) "d ")))
-;;    ad-do-it))
-
 ;;; mouse scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
-;;(setq mouse-wheel-progressive-speed nil)
+
+;;; package inits
+(require 'package-inits)
 
 ;;;
 (provide 'user-opts)
+;;; user-opts.el ends here
