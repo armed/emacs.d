@@ -80,6 +80,17 @@
 ;;; mouse scroll
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
 
+;;; file path in frame title
+(setq frame-title-format
+  '(:eval
+    (if buffer-file-name
+        (replace-regexp-in-string
+         "\\\\" "/"
+         (replace-regexp-in-string
+          (regexp-quote (getenv "HOME")) "~"
+          (convert-standard-filename buffer-file-name)))
+      (buffer-name))))
+
 ;;; package inits
 (require 'package-inits)
 
