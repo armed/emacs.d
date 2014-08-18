@@ -42,7 +42,10 @@
 ;; Save current position to mark ring when jumping to a different place
 (add-hook 'helm-goto-line-before-hook 'helm-save-current-pos-to-mark-ring)
 
+(require 'helm-projectile)
+
 (global-set-key (kbd "C-c h") 'helm-projectile)
+(global-set-key (kbd "C-c H") 'helm-projectile-switch-project)
 
 (helm-mode 1)
 

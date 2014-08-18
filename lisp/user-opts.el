@@ -67,9 +67,6 @@
 ;;; indent
 (electric-indent-mode -1)
 
-;;; brackets
-(electric-pair-mode 1)
-
 ;;; prevent backups
 (setq make-backup-files nil)
 (setq auto-save-default nil)
