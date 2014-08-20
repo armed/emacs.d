@@ -1,13 +1,5 @@
 ;;; env
-(setenv "GOPATH" "/Users/armed/Developer/go")
-(setenv "PATH"
-        (concat
-         (getenv "GOPATH") "/bin" ":"
-         "/usr/local/bin" ":"
-         (getenv "PATH")))
-(setq exec-path (append exec-path
-      '("~/Developer/go/bin"
-        "/usr/local/bin")))
+(require 'machine-user-env)
 
 ;;; bell
 (setq ring-bell-function 'ignore)

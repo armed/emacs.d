@@ -6,7 +6,7 @@
 ;;; appearance
 (setq inhibit-startup-screen t) ;; no startup screen
 
-(require 'cask "/usr/local/Cellar/cask/0.7.0/cask.el")
+(require 'cask "~/.cask/cask.el")
 (cask-initialize)
 (require 'pallet)
 
