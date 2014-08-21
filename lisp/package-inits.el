@@ -2,11 +2,15 @@
 ;;; Package initializations
 ;;;
 
-;;; projectile
-;;(projectile-global-mode t)
+;;; auto indent
+(auto-indent-global-mode)
 
-;;; flycheck
-;;(add-hook 'after-init-hook #'global-flycheck-mode)
+;;; company mode
+(add-hook 'after-init-hook 'global-company-mode)
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
 
 ;;; flycheck-pos-tip
 (eval-after-load 'flycheck
@@ -17,8 +21,9 @@
 (add-hook 'before-save-hook #'gofmt-before-save)
 (add-hook 'go-mode-hook (lambda ()
                           (flycheck-mode t)
-                          (local-set-key (kbd "RET") 'newline-and-indent)
-                          (local-set-key (kbd "<M-.>") #'godef-jump)))
+                          (local-set-key (kbd "<M-.>") #'godef-jump)
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (company-mode)))
 
 ;;; go-eldoc
 (add-hook 'go-mode-hook 'go-eldoc-setup)
@@ -37,20 +42,7 @@
 
 ;;; evil nerd commenter
 (evilnc-default-hotkeys)
-(global-set-key (kbd "s-\\") 'evilnc-comment-or-uncomment-lines)
-
-;;; auto complete
-(require 'auto-complete)
-(global-auto-complete-mode t)
-
-(defun auto-complete-mode-maybe ()
-  "No maybe for you. Only AC!"
-  (unless (minibufferp (current-buffer))
-    (auto-complete-mode 1)))
-
-;;; go autocomplete
-(require 'go-autocomplete)
-(require 'auto-complete-config)
+(global-set-key (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
 
 ;;; helm
 (require 'helm-inits)
@@ -76,15 +68,12 @@
   (setq web-mode-script-padding 1)
   (setq web-mode-block-padding 0)
   (setq web-mode-comment-style 2)
-  (local-set-key (kbd "RET") 'newline-and-indent)
   )
 (add-hook 'web-mode-hook  'my-web-mode-hook)
 
 ;;; emmet mode
 (add-hook 'web-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
 (add-hook 'css-mode-hook 'emmet-mode) ;; enable Emmet's css abbreviation.
-(add-hook 'web-mode-hook 'ac-emmet-html-setup)
-(add-hook 'css-mode-hook 'ac-emmet-css-setup)
 
 ;;; smart parens
 (smartparens-global-mode t)
