@@ -1,4 +1,5 @@
-;;; env
+;;; env, machine dependend file
+;;; not included to repo
 (require 'machine-user-env)
 
 ;;; bell
