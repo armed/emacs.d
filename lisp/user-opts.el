@@ -69,6 +69,9 @@
           (convert-standard-filename buffer-file-name)))
       (buffer-name))))
 
+;;; js indent
+(setq js-indent-level 2)
+
 ;;; package inits
 (require 'package-inits)
 

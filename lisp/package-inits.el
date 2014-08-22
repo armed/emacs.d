@@ -3,7 +3,7 @@
 ;;;
 
 ;;; auto indent
-(auto-indent-global-mode)
+;;(auto-indent-global-mode)
 
 ;;; company mode
 (add-hook 'after-init-hook 'global-company-mode)
@@ -48,7 +48,6 @@
 (require 'helm-inits)
 
 ;;; web mode
-(require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode))
@@ -78,6 +77,31 @@
 ;;; smart parens
 (smartparens-global-mode t)
 (show-smartparens-global-mode t)
+
+;;; js2-mode
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(add-hook 'js-mode-hook 'js2-minor-mode)
+(setq-default js2-global-externs '("module"
+                                   "require"
+                                   "buster"
+                                   "sinon"
+                                   "assert"
+                                   "refute"
+                                   "setTimeout"
+                                   "clearTimeout"
+                                   "setInterval"
+                                   "clearInterval"
+                                   "location"
+                                   "__dirname"
+                                   "console"
+                                   "JSON"
+                                   "_"
+                                   "angular"
+                                   "$"))
+(setq-default js2-show-parse-errors nil)
+(setq-default js2-strict-missing-semi-warning nil)
+(setq-default js2-strict-trailing-comma-warning nil)
+(add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
 
 (provide 'package-inits)
 ;;; package-inits.el ends here

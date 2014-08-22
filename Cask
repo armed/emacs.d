@@ -18,6 +18,7 @@
 (depends-on "helm-projectile")
 (depends-on "helm-projectile-all")
 (depends-on "jade-mode")
+(depends-on "js2-mode")
 (depends-on "magit")
 (depends-on "move-dup")
 (depends-on "pallet")
