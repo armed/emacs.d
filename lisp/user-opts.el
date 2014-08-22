@@ -18,35 +18,20 @@
 (setq recentf-max-menu-items 25)
 (global-set-key (kbd "s-r") 'recentf-open-files)
 
+;;; move dup
+(global-set-key (kbd "<C-M-up>") 'md/duplicate-up)
+(global-set-key (kbd "<C-M-down>") 'md/duplicate-down)
+(global-set-key (kbd "<C-S-up>") 'md/move-lines-up)
+(global-set-key (kbd "<C-S-down>") 'md/move-lines-down)
+
 ;; other keys
-(global-set-key (kbd "<C-M-right>") 'enlarge-window-horizontally)
-(global-set-key (kbd "<C-M-left>") 'shrink-window-horizontally)
-(global-set-key (kbd "<C-M-down>") 'enlarge-window)
-(global-set-key (kbd "<C-M-up>") 'shrink-window)
 (global-set-key (kbd "<M-up>") 'other-window)
 (global-set-key (kbd "<M-down>") 'other-window)
 (global-set-key (kbd "<s-left>") 'move-beginning-of-line)
 (global-set-key (kbd "<s-right>") 'move-end-of-line)
-(global-set-key (kbd "<s-up>") 'backward-paragraph)
-(global-set-key (kbd "<s-down>") 'forward-paragraph)
-
-(require 'move-lines)
-(global-set-key (kbd "<C-S-up>") 'move-lines-up)
-(global-set-key (kbd "<C-S-down>") 'move-lines-down)
 
 ;; replace on yank
 (delete-selection-mode 1)
-
-;; dublicate line
-(defun duplicate-line()
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line)
-  (yank)
-  (newline)
-  (yank)
-)
-(global-set-key (kbd "s-d") 'duplicate-line)
 
 ;;; fonts
 (set-frame-font "Monaco 15")

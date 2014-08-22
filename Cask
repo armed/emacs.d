@@ -1,5 +1,6 @@
 (source melpa)
 
+(depends-on "ample-theme")
 (depends-on "auto-indent-mode")
 (depends-on "company")
 (depends-on "company-go")
@@ -18,6 +19,7 @@
 (depends-on "helm-projectile-all")
 (depends-on "jade-mode")
 (depends-on "magit")
+(depends-on "move-dup")
 (depends-on "pallet")
 (depends-on "persistent-soft")
 (depends-on "popup")
