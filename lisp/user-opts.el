@@ -34,8 +34,9 @@
 (delete-selection-mode 1)
 
 ;;; fonts
-(set-frame-font "Monaco 15")
+(set-frame-font "Monaco 16")
 (setq file-name-coding-system 'utf-8)
+(setq-default line-spacing 3)
 
 ;;; tab width
 (setq-default indent-tabs-mode nil)
