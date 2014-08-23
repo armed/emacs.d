@@ -41,10 +41,6 @@
 ;; Set Yasnippet's key binding to shift+tab
 (define-key yas-minor-mode-map (kbd "<backtab>") 'yas-expand)
 
-;;; evil nerd commenter
-(evilnc-default-hotkeys)
-(global-set-key (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
-
 ;;; helm
 (require 'helm-inits)
 
@@ -103,6 +99,18 @@
 (setq-default js2-strict-missing-semi-warning nil)
 (setq-default js2-strict-trailing-comma-warning nil)
 (add-hook 'js2-mode-hook (lambda () (flycheck-mode 1)))
+
+;;; evil mode
+(evil-mode 1)
+(global-evil-surround-mode 1)
+
+;;; evil nerd commenter
+(evilnc-default-hotkeys)
+(global-set-key (kbd "s-/") 'evilnc-comment-or-uncomment-lines)
+
+;;; powerline
+(powerline-evil-center-color-theme)
+;; (powerline-evil-vim-color-theme)
 
 (provide 'package-inits)
 ;;; package-inits.el ends here
