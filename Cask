@@ -1,5 +1,6 @@
 (source melpa)
 
+(depends-on "ace-jump-mode")
 (depends-on "ample-theme")
 (depends-on "auto-indent-mode")
 (depends-on "company")
