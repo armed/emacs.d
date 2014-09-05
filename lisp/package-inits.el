@@ -144,7 +144,7 @@
 
 ;;; key chord
 (key-chord-mode 1)
-(key-chord-define-global "iu" 'project-explorer-open)
+(key-chord-define-global "re" 'project-explorer-open)
 (key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
 
 (provide 'package-inits)
