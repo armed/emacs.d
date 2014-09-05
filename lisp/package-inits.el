@@ -142,5 +142,10 @@
 ;;; projectile
 (projectile-global-mode)
 
+;;; key chord
+(key-chord-mode 1)
+(key-chord-define-global "iu" 'project-explorer-open)
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+
 (provide 'package-inits)
 ;;; package-inits.el ends here
